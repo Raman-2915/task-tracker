@@ -11,7 +11,19 @@ const app = express();
 
 const taskRoutes = require("./routes/taskRoutes");
 
-app.use(cors());
+// app.use(cors());
+app.use(
+
+  cors({
+
+    origin:
+      "https://task-tracker-eight-mocha.vercel.app",
+
+    credentials: true,
+
+  })
+
+);
 app.use(express.json());
 
 app.use("/api/tasks", taskRoutes);
